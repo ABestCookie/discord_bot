@@ -18,11 +18,15 @@ async def on_ready():
 @bot.command()
 async def ask(ctx, *, question):
     await ctx.send("🤔 Thinking...")
-    response = openai.ChatCompletion.create(
-        model="gpt-3.5-turbo",
-        messages=[{"role": "user", "content": question}]
-    )
-    answer = response["choices"][0]["message"]["content"]
+    try:
+        response = openai.ChatCompletion.create(
+            model="gpt-3.5-turbo",
+            messages=[{"role": "user", "content": question}]
+        )
+    
+        answer = response["choices"][0]["message"]["content"]
+    except Exception as e:
+        answer=e
     await ctx.send(answer)
 
 bot.run(DISCORD_TOKEN)
