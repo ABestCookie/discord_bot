@@ -38,5 +38,6 @@ jobs:
     - name: Test with pytest
       env:
          DISCORD_TOKEN: ${{ secrets.DISCORD_TOKEN }}
+         OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY}}
       run: |
-        python bot.py
+        python GPT_bot.py
