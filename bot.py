@@ -1,6 +1,9 @@
 
 # 導入Discord.py模組
 import discord
+import os
+
+TOKEN=os.environ['DISCORD_TOKEN']
 
 # client是跟discord連接，intents是要求機器人的權限
 intents = discord.Intents.default()
@@ -31,5 +34,4 @@ async def on_message(message):
 			await message.channel.send("你TM甚麼都沒講，叫我叫寂寞的喔？")
 			await message.channel.send("丟你老謀!") 
 
-client.run("MTIwODM1NTQyMzg2Mjc4NDAyMQ.GJR2xc.Oo9Eyxn2SAS8yUW-Yzxx-LOmTKyca8KoxW40LY")
-#MTIwODM1NTQyMzg2Mjc4NDAyMQ.GJR2xc.Oo9Eyxn2SAS8yUW-Yzxx-LOmTKyca8KoxW40LY
+client.run(TOKEN)
